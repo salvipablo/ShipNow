@@ -1,0 +1,1 @@
+select department.dept_id, count(department.dept_id) as count, sum(employee.salary) as sum_of_salary from department inner join employee on department.dept_id = employee.dept_id group by department.dept_id order by department.dept_id;
