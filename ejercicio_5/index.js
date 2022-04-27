@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 
 function obtenerData(sucursalInicio) {
-    fetch("http://127.0.0.1:5500/breweries.geojson")
+    fetch("http://127.0.0.1:8080/breweries.geojson")
     .then(response =>{ return response.json() })
     .then(data => { armarCamino(data, sucursalInicio) })
 }
@@ -20,45 +20,36 @@ function armarCamino(data, sucursalInicio) {
         arrayCordenadas.push(element.geometry.coordinates[0])
     });
 
+    //Ordeno el array de coordenadas
     arrayCordenadas.sort();
 
+    // Armo un array con las cervecerias ordenadas por las coordenadas
+    // que se ordenaron con el sort
     let cerveceriasOrder = []
     arrayCordenadas.forEach(element => {
         cerveceriasOrder.push(buscarCerveceria(element, dataCervecerias));
     });
 
-    let texto = "";
-    cerveceriasOrder.forEach(element => {
-        texto += `${element.toString()}//`
-    });
-
-    let cercOrder = texto.split("//")
-
-    texto = "";
-    arrayCordenadas.forEach(element => {
-        texto += `${element.toString()}//`
-    });
-
-    let coordOrder = texto.split("//")
-    for (let z = 0; z < cercOrder.length; z++) {
-        console.log(`${cercOrder[z]} -- ${coordOrder[z]}`);
+    // Muestro en pantalla, las cervecerias ya ordenadas por coordenadas
+    for (let z = 0; z < cerveceriasOrder.length; z++) {
+        console.log(`${cerveceriasOrder[z]} -- ${arrayCordenadas[z]}`);
     }
 
-    let pos = 0;
-    for (let i = 0; i < cerveceriasOrder.length; i++) {
-        if (cerveceriasOrder[i] == sucursalInicio) {
-            pos = i;
-        }
-    }
+    // Guardo la posicion de la cerveceria elegida como incial
+    let pos = cerveceriasOrder.indexOf(sucursalInicio);
 
-    texto = "";
-    texto += cerveceriasOrder[pos] + " -- ";
+    // Guardo en la variable a mostrar por pantalla, la primera cerveceria
+    // elegida como comienzo
+    let texto = cerveceriasOrder[pos] + " -- ";
 
+    // Recorro las cervecerias desde la primera e ignoro la ya elegida
+    // porque ya estuvo ahi
     for (let j = 0; j < cerveceriasOrder.length; j++) {
         if (j == pos) continue
         texto += `${cerveceriasOrder[j]} -- `;
     }
 
+    // Muestro en pantalla el orden de las cervecerias a recorrer
     console.log("");
     console.log(`Orden de las cervecerias a visitar, siendo la primera: ${sucursalInicio}`);
     console.log(texto);
