@@ -7,4 +7,4 @@ Ejecutar comando "npm i" para instalar las dependecias. Despues ejecutar comando
 ## Funcionamiento
 
 ### Envio de post cob url larga, para crear url corta
-![alt text](https://github.com/salvipablo/ShipNow/blob/main/image.jpg?raw=true)
+![imagen_post](https://github.com/salvipablo/ShipNow/capturas_readme/main/post.png?raw=true)
