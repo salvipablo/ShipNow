@@ -23,3 +23,6 @@ La api guarda la fecha de creación, y cada que se solicita una url verifica si 
 
 ### Envio de url corta, para que la api redireccione al usuario
 ![imagen_post](https://github.com/salvipablo/ShipNow/blob/main/ejercicio_4/capturas_readme/Envio_url_corta.png)
+
+### Envio de url corta, cuando la url esta expirada
+![imagen_post](https://github.com/salvipablo/ShipNow/blob/main/ejercicio_4/capturas_readme/envio_url_corta_expired.png)
