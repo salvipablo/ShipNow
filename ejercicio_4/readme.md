@@ -4,7 +4,7 @@ Ejecutar comando "npm i" para instalar las dependecias. Despues ejecutar comando
 
 ***
 
-# Idea del funcionamiento api
+# Idea del funcionamiento de la api
 La api se pensó, para que tenga una petición post con el envió de una url larga, el sistema recibe esta url y genera un url corta con un numero aleatorio y un id en que va aumentando de acuerdo a la creación de urls cortas.
 
 Si se le peticiona la url corta, este re direcciona al usuario a la página original, y si peticiona la url larga el sistema le devuelve la url corta.
